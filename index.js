@@ -1,17 +1,28 @@
-const loadData = async(searchText)=>{
+const loadData = async(searchText, isShowAll)=>{
     const res= await fetch(`https://openapi.programming-hero.com/api/phones?search=${searchText}`)
     const data= await res.json();
-    displayData(data.data);
+    displayData(data.data, isShowAll);
+    console.log(isShowAll)
 }
 
-const displayData = (datas)=>{
+const displayData = (datas,isShowAll)=>{
+    console.log(isShowAll)
     const dataContainer=document.getElementById('dataContainer')
+    const showAll=document.getElementById('showAll');
         dataContainer.textContent='';
         let dataLength=datas.length;
         if (dataLength>10) {
-            const showAll=document.getElementById('showAll');
+            
             showAll.classList.remove('hidden')
         }
+        else{
+            showAll.classList.add('hidden') 
+        }
+    
+
+    if (!isShowAll) {
+        datas= datas.slice(0,5); 
+    }
     datas.forEach(data => {
 
         
@@ -33,10 +44,11 @@ const displayData = (datas)=>{
     
 }
 
-const searchData=()=>{
+const searchData=(isShowAll)=>{
     const input= document.getElementById('input');
-    loadData(`${input.value}`);
+    loadData(`${input.value}`,isShowAll);
     loadSpinner(true)
+    console.log(isShowAll)
     
 }
 
@@ -56,14 +68,9 @@ const loadSpinner=(isLodding)=>{
 }
 
 
- const showAll=(dataLength)=>{
+ const showAll=(isShowAll)=>{
         
-       
+    searchData(true)
  }
-
-
-
-
-
 
 console.log('connected')
