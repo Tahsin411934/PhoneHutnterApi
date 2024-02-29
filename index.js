@@ -3,6 +3,8 @@ const loadData = async(searchText, isShowAll)=>{
     const data= await res.json();
     displayData(data.data, isShowAll);
     console.log(isShowAll)
+    const input= document.getElementById('input');
+    
 }
 
 const displayData = (datas,isShowAll)=>{
@@ -17,6 +19,7 @@ const displayData = (datas,isShowAll)=>{
         }
         else{
             showAll.classList.add('hidden') 
+            input.value=''; 
         }
     
 
@@ -41,7 +44,7 @@ const displayData = (datas,isShowAll)=>{
     });
     loadSpinner(false)
    
-    
+   
 }
 
 const searchData=(isShowAll)=>{
@@ -71,6 +74,7 @@ const loadSpinner=(isLodding)=>{
  const showAll=(isShowAll)=>{
         
     searchData(true)
+    input.value=''; 
  }
 
 console.log('connected')
