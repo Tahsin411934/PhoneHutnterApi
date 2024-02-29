@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dim">
 
 <head>
     <meta charset="UTF-8">
@@ -9,7 +9,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
+<body class="bg-slate-900 ">
     <div class="m-auto w-[40%] p-10">
 
 
@@ -22,10 +22,13 @@
         <section id="isHidden" class="text-center hidden">
             <span class="loading loading-spinner loading-lg "></span>
         </section>
-        <div id="dataContainer" class="grid grid-cols-3">
+        <div id="dataContainer" class="grid grid-cols-3 pl-6 text-black">
 
         </div>
-        <button id="showAll"  onclick="showAll()" class="btn btn-primary hidden">showAll</button>
+        <div class="text-center mb-10">
+            <button id="showAll"  onclick="showAll()" class="btn btn-primary hidden">showAll</button>
+        </div>
+       
 
         
     </main>
